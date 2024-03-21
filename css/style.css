@@ -1,0 +1,958 @@
+/*
+----------------------------------
+
+ Name: style.css
+ Version: 1.0.0
+
+----------------------------------
+
+	Table of Contents
+	
+	1. RESET
+	2. TYPOGRAPHY
+	3. DESIGN CONTAINER
+	4. MENU
+	5. HOME SECTION
+	6. ABOUT SECTION
+	7. CONTACT SECTION
+	8. COUNTER
+	9. LOADING
+	10. MEDIAQUERIES
+
+*/
+
+/* ==================================================================
+	1. RESET
+================================================================== */
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+section {
+	min-height: 100%;
+}
+body {
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	overflow: hidden !important;
+}
+::selection {
+	color: #000;
+	background: none repeat scroll 0 0 #fff;
+}
+::-moz-selection {
+	color:#000;
+	background: none repeat scroll 0 0 #fff;
+}
+::-webkit-input-placeholder {
+	color: #fff;
+	text-overflow: ellipsis;
+}
+:-moz-placeholder {
+	color: #fff !important;
+	text-overflow: ellipsis;
+	opacity:1;
+}
+::-moz-placeholder {
+	color: #fff !important;
+	text-overflow: ellipsis;
+	opacity:1;
+} 
+:-ms-input-placeholder {
+	color: #fff !important;
+	text-overflow: ellipsis;
+	opacity:1;
+}
+/* ==================================================================
+	2. TYPOGRAPHY
+================================================================== */
+h1, h2 {
+	font-family: 'Oswald', sans-serif;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+h1 {
+	background-color: #1dc607;
+	color: #fff;
+	float: none !important;
+	font-size: 45px;
+	margin: 0 auto 5%;
+	padding: 20px 0 22px 0;
+}
+h2 {
+	padding: 10px 25px;
+	font-size: 25px;
+	background-color: rgba(235, 235, 235, 0.1);
+	text-align: center;
+	border-top: 1px solid #1dc607;
+	color: #FFF;
+}
+h3 {
+	font-size: 14px;
+	color: #FFF;
+	margin: 0;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+h4 {
+	font-size: 25px;
+	font-weight: 100;
+	margin: 25px 0 0 0;
+}
+/* ==================================================================
+	3. DESIGN CONTAINER
+================================================================== */
+.main {
+	display: table;
+	width: 100%;
+	margin: 0 auto;
+	height: 100%;
+	padding: 0px;
+}
+.main .page {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	position: absolute;
+	z-index: 9999;
+	width: 100%;
+}
+.container {
+	width: 727px;
+	margin: 8% auto 0 auto
+}
+.logo {
+	margin: 0 0 5%;
+}
+.align-center {
+	text-align: center
+}
+.center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+.slider-overlay {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background: rgba(0, 0, 0, .7);
+	z-index: 11;
+}
+/* ==================================================================
+	4. MENU
+================================================================== */
+
+.bt-menu {
+	position: fixed;
+	top: 0px !important;
+	right: 0px !important;
+	width: 100%;
+	height: 0;
+	border-width: 0px;
+	border-style: solid;
+	background-color: rgba(255,255,255,0);
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
+	transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
+	z-index: 99999;
+}
+.bt-menu.bt-menu-open {
+	height: 100%;
+	border-width: 0 230px 0 0;
+	background-color: rgba(0,0,0,0.6);
+	-webkit-transition: border-width 0.3s, background-color 0.3s;
+	transition: border-width 0.3s, background-color 0.3s;
+	border-color: #FFF;
+	-webkit-transition: ease-out;
+}
+.bt-overlay {
+	position: absolute;
+	width: 100%;
+}
+.bt-menu-open .bt-overlay {
+	height: 100%;
+}
+.bt-menu-trigger {
+	position: fixed;
+	top: 15px;
+	right: 20px;
+	display: block;
+	width: 30px;
+	height: 50px;
+	cursor: pointer;
+	outline: none;
+}
+.bt-menu-trigger span {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 4px;
+	margin-top: -2px;
+	background-color: #509e2fff;
+	font-size: 0px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transition: background-color 0.2s;
+	transition: background-color 0.2s;
+}
+.bt-menu-open .bt-menu-trigger span {
+	background-color: transparent;
+}
+.bt-menu-trigger span:before, .bt-menu-trigger span:after {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #09ec09;
+	content: '';
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.3s;
+}
+.bt-menu-trigger span:before {
+	-webkit-transform: translateY(-250%);
+	transform: translateY(-250%);
+}
+.bt-menu-trigger span:after {
+	-webkit-transform: translateY(250%);
+	transform: translateY(250%);
+}
+.bt-menu-open .bt-menu-trigger span:before {
+	-webkit-transform: translateY(0) rotate(45deg);
+	transform: translateY(0) rotate(45deg);
+	background-color: #000;
+}
+.bt-menu-open .bt-menu-trigger span:after {
+	-webkit-transform: translateY(0) rotate(-45deg);
+	transform: translateY(0) rotate(-45deg);
+	background-color: #000;
+}
+.bt-menu ul {
+	position: fixed;
+	top: 75px;
+	right: 40px;
+	margin: 0;
+	padding: 0;
+	width: 150px;
+	list-style: none;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	height: 100%;
+}
+.bt-menu ul li, .bt-menu ul li a {
+	display: block;
+	width: 100%;
+	text-align: left;
+}
+.bt-menu ul li {
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: -webkit-transform 0.2s, opacity 0.2s, visibility 0s 0.3s;
+	transition: transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+}
+.bt-menu.bt-menu-open ul li {
+	visibility: visible;
+	opacity: 1;
+	-webkit-transition: -webkit-transform 0.1s, opacity 0.1s 0.1s;
+	transition: transform 0.1s, opacity 0.1s;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	color: #000;
+}
+.bt-menu ul li a {
+	display: block;
+	outline: none;
+	color: #000;
+	text-decoration: none;
+	padding: 15px 0;
+	border-bottom: 2px solid #1dc607;
+	text-transform: uppercase;
+	font-size: 16px;
+}
+.bt-menu ul li a:hover {
+	border-bottom: 2px solid #000;
+}
+.bt-menu ul li a i {
+	padding: 0 11px 0 0
+}
+.bt-menu ul li a:before {
+	color: #04a466;
+	-webkit-transition: color 0.2s;
+	transition: color 0.2s;
+}
+.bt-menu ul li a:hover:before, .bt-menu ul li a:focus:before {
+	color: #fff;
+}
+.nav-contact {
+	padding: 30% 0 0 0;
+	font-size: 14px;
+}
+.nav-contact span {
+	border-top: 1px solid #d6d6d6;
+	width: 100%;
+	display: inline-block;
+	padding: 15px 0 0 0;
+	margin: 15px 0 0 0;
+}
+.nav-contact span a {
+	font-size: 14px !important;
+	border-bottom: none !important;
+	text-transform: lowercase !important;
+	padding: 0 !important;
+	display: inline !important
+}
+.bt-menu ul li.navi-bottom {
+	position: absolute;
+	bottom: 0px;
+}
+.bt-menu-open img {
+	display: block !important;
+	position: absolute;
+	bottom: 120px;
+	left: 15px;
+}
+.bt-menu-close img, .bt-menu img {
+	display: none
+}
+/* ==================================================================
+	5. HOME SECTION
+================================================================== */
+#home {
+	background: url(../images/m1.jpeg) center top scroll;
+	width: 100%;
+	height: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+#home #counter {
+	color: #ffffff;
+	font-size: 50px;
+}
+.home {
+	margin: 0 auto;
+}
+.home .text {
+	color: #fff;
+	font-size: 16px;
+	font-weight: 300;
+	margin-bottom: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+}
+.home form {
+	float: none;
+	margin: 0 auto;
+	border-radius: 0px;
+	padding: 0px;
+}
+.input-group {
+	height: 30px;
+	padding: 5px;
+	border: 1px solid rgba(255, 255, 255, 0.7);
+}
+.home form input {
+	background-color: transparent;
+	border: 0 none;
+	border-radius: 0;
+	color: #fff;
+	padding: 7px;
+	width: 576px;
+	margin: 0;
+	font-size: 14px;
+}
+.home form .validation {
+	background-color: #ff8f8f;
+}
+#successmsg {
+	margin-top: 17px;
+	color: #fff;
+	background-color: #1dc607;
+	padding: 10px 0 10px;
+	font-family: 'Oswald', sans-serif;
+	text-transform: uppercase;
+	display: none;
+}
+#successmsg1 {
+	margin-top: 25px;
+	margin-bottom: 52px;
+	font-size: 18px;
+	color: #fff;
+	background-color: #1dc607;
+	padding: 10px 0 10px;
+	font-family: 'Oswald', sans-serif;
+	text-transform: uppercase;
+	display: none;
+}
+.home button {
+	background-color: #ffffff;
+	color: #000000;
+	border: 0px;
+	border-radius: 0px;
+	padding: 4px 12px;
+	cursor: pointer;
+	width: 120px;
+	height: 30px;
+	float: right;
+}
+.home button span {
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	white-space: pre;
+}
+.home button:hover {
+	background-color: #1dc607;
+	color: #FFF;
+}
+.social {
+	clear: both;
+}
+.social ul {
+	margin: 5% 0 0 0;
+	padding: 0;
+}
+.social ul.contact {
+	margin: 3.2% 0 0 0
+}
+.social ul li {
+	display: inline-block;
+	margin: 0 15px;
+}
+.social ul li a {
+	color: #FFF;
+	font-size: 20px;
+	display: inline-block;
+	float: left;
+	outline: none;
+}
+.social ul li a:hover {
+	opacity: 0.6;
+	color: #1dc607
+}
+/* ==================================================================
+	6. ABOUT SECTION
+================================================================== */
+#about {
+	background: url(../images/m3.jpeg) center top scroll;
+	width: 100%;
+	height: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.about {
+	text-align: left
+}
+.about p {
+	margin: 0;
+	padding: 10px 0 30px 0;
+}
+.icon-text {
+	width: 100%;
+	float: left;
+	border-top: 1px solid rgba(235, 235, 235, 0.2);
+	padding: 30px 0 0 0
+}
+.about-icon {
+	width: 14%;
+	float: left;
+	font-size: 65px;
+	color: #FFF
+}
+.about-text {
+	width: 86%;
+	float: right
+}
+.about .social {
+	border-top: 1px solid rgba(235, 235, 235, 0.2);
+	padding: 0;
+	text-align: center
+}
+/* ==================================================================
+	7. CONTACT SECTION
+================================================================== */
+#contact {
+    background: rgba(255, 255, 255, 0.1) url('../images/m9.jpg') center top scroll; /* Adjust the alpha value (0.1) to control the opacity */
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.contact fieldset {
+	margin: 2.4% auto 0;
+	float: none;
+	border: none;
+	padding: 0;
+}
+.contact input {
+	background-color: rgba(0, 0, 0, 0.4);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 0;
+	box-shadow: none;
+	color: #fff;
+	margin: 0 0 10px;
+	padding: 14px 15px 14px 15px;
+	font-size: 15px;
+	width: 695px;
+}
+.contact .validation {
+	border: 1px solid #ff0000;
+}
+.contact textarea {
+	background-color: rgba(0, 0, 0, 0.4);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 0;
+	box-shadow: none;
+	color: #fff;
+	margin: 0 0 10px;
+	padding: 15px;
+	width: 695px;
+	resize: none;
+	height: 120px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+}
+.contact .submit_btn {
+	background-color: #ffffff;
+	border: 0 none;
+	border-radius: 0;
+	color: #000000;
+	cursor: pointer;
+	height: 100%;
+	padding: 8px 15px;
+	margin-top: 15px;
+	border: 1px solid #FFF;
+}
+.contact .submit_btn span {
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	white-space: pre;
+}
+.contact .submit_btn:hover {
+	background-color: transparent;
+	color: #1dc607;
+	border: 1px solid #1dc607;
+}
+.contact p {
+	float: none;
+	color: #ffffff;
+	display: inline-block;
+}
+/* ==================================================================
+	8. COUNTER
+================================================================== */
+#counter {
+	color: #fff;
+	overflow: hidden;
+	margin: 9% 0;
+}
+.counter-container {
+	display: table;
+	margin: 0 auto;
+}
+#counter .counter-box {
+	display: block;
+	width: 90px;
+	text-align: center;
+	overflow: hidden;
+	padding: 15px 25px;
+	float: left;
+	margin: 0px 35px 0 0;
+	border-left: 1px solid rgba(29, 198, 7, .2);
+	border-right: 1px solid rgba(29, 198, 7, .2);
+}
+#counter .last {
+	border-right: 0px;
+	width: 90px;
+	padding: 15px 0 15px 25px;
+}
+#counter .first {
+	border-left: 0px;
+}
+#counter .number {
+	font-size: 60px;
+	text-align: center;
+	font-weight: 700;
+	line-height: 60px;
+}
+#counter span {
+	display: block;
+	font-size: 16px;
+	text-align: center;
+	font-weight: 400;
+}
+/* ==================================================================
+	9. LOADING
+================================================================== */
+
+.loading-bg {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: #000;
+	z-index: 999999;
+}
+.loading {
+	margin: 0 auto;
+	padding: 5px 0 15px;
+	position: absolute;
+	top: 50%;
+	left: 48.9%;
+	z-index: 9999999;
+}
+
+/* ==================================================================
+	10. MEDIAQUERIES
+================================================================== */
+@media screen and (min-width:1250px) and (max-width:1400px) {
+.container {
+	margin: 4% auto 0 auto;
+}
+	#counter {
+ margin: 5% 0;
+}
+.contact textarea {
+	height: 70px;
+}
+h1 {
+	margin: 0 auto 4%;
+}
+.home .text {
+	margin-bottom: 4%; 
+}
+.logo {
+	margin: 0 0 5%;
+}
+.about p {
+	padding: 10px 0 25px 0;
+}
+.icon-text {
+	padding: 25px 0 0 0;
+}
+.social ul {
+	margin: 4% 0 0 0;
+}
+}
+@media only screen and (max-width:1024px) {
+.container {
+	margin: 4% auto 0 auto;
+}
+#counter {
+	margin: 5% 0;
+}
+section h1 {
+	font-size: 40px;
+	padding: 16px 0 18px 0;
+}
+.nav-main {
+	bottom: 20px !important;
+}
+.social ul {
+	margin: 3% 0 0 0;
+}
+#contact { padding-bottom:400px;}
+}
+@media only screen and (max-width: 768px) {
+#counter {
+	margin: 7% 0;
+}
+.nav-main {
+	bottom: 30px !important;
+}
+.bt-menu ul {
+	display: none;
+}
+.bt-menu-open ul {
+	display: block;
+}
+.social ul {
+	margin: 7% 0 0 0;
+}
+.container {
+	margin: 17% auto 0;
+}
+}
+@media only screen and (max-device-width: 1024px) and (orientation:landscape) {
+.contact textarea {
+	height: 74px;
+}
+}
+ @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+.home form input {
+	padding: 6px 7px 6px 7px;
+}
+.loading {
+	left: 46.8%;
+}
+}
+@media only screen and (max-width: 750px) {
+.container {
+	margin: 6% auto 0;
+	width: 90%;
+}
+#counter {
+	margin: 5% 0;
+}
+#home #counter {
+	font-size: 30px;
+}
+#counter .number {
+	font-size: 30px;
+	line-height: 40px;
+}
+#counter .counter-box {
+	width: 70px;
+	padding: 15px 15px;
+	margin: 0px 25px 0 0;
+}
+section h1 {
+	font-size: 40px;
+}
+#counter {
+	margin: 8% 0;
+}
+.home form input {
+	width: 72%;
+}
+.input-group {
+	text-align: left;
+}
+.input-group .btn-default {
+	float: right;
+}
+.contact input {
+	padding: 15px 3%;
+	width: 93.6%
+}
+.contact textarea {
+	padding: 15px 3%;
+	width: 93.6%
+}
+section {
+	height: 100% !important;
+	background-color: #000;
+	padding-bottom: 30px;
+}
+.fp-tableCell {
+	height: 100% !important;
+}
+.main .page {
+	position: inherit;
+}
+#home {
+	position: relative;
+	height: 100% !important;
+
+}
+
+.nav-main {
+	z-index: 9999 !important;
+}
+#contact { padding-bottom:0;}
+}
+ @media only screen and (max-width: 600px) {
+.container {
+	margin: 6% auto 0;
+	width: 90%;
+}
+section h1 {
+	padding: 2.6% 0 3%;
+	font-size: 34px;
+	margin-bottom: 7%;
+}
+#home #counter {
+	font-size: 30px;
+}
+#counter .number {
+	font-size: 30px;
+	line-height: 30px;
+}
+#counter .counter-box {
+	width: 60px;
+	padding: 15px 20px;
+	margin: 0 0 0 0;
+	border-right: 0 solid rgba(29, 198, 7, .2);
+}
+#counter {
+	margin: 8% 0 6%;
+}
+.about-icon {
+	font-size: 45px;
+}
+.home .text {
+	margin-bottom: 8%;
+	width: 100%;
+}
+.home form input {
+	width: 65%;
+}
+.social ul {
+	margin: 10% 0 0 0;
+}
+.bt-menu-trigger {
+	top: 0px;
+	right: 12px;
+}
+.loading {
+	left: 41.8%;
+}
+}
+ @media only screen and (max-width: 480px) {
+section h1 {
+	font-size: 24px;
+	padding: 4% 0 5%;
+}
+.home .text {
+	font-size: 14px;
+}
+#features .features-page p {
+	font-size: 13px;
+}
+.contact p {
+	font-size: 12px;
+}
+#home #counter {
+	font-size: 25px;
+	padding-right: 10px;
+}
+#counter .number {
+	font-size: 25px;
+	line-height: 20px;
+}
+#counter .counter-box {
+	width: 50px;
+	padding: 10px 6px;
+}
+#counter span {
+	font-size: 13px;
+}
+.home form input {
+	width: 60%;
+}
+.bt-menu.bt-menu-open {
+	border-width: 0 0 0 0;
+	background-color: #fff;
+	width: 100%;
+}
+.bt-menu-open ul {
+	display: block !important;
+	width: 78%;
+	right: 17%;
+	top: 10px;
+}
+.bt-menu ul {
+	display: none;
+}
+.about p {
+	font-size: 13px;
+	padding: 5px 0 20px 0;
+}
+.icon-text {
+	padding: 20px 0 0 0;
+}
+.bt-menu ul li a {
+	font-size: 14px;
+	padding: 10px 0 12px;
+}
+.nav-contact {
+	padding: 20px 0 0 0;
+}
+.nav-contact span {
+	padding: 10px 0 0 0;
+	margin: 10px 0 0 0;
+}
+.bt-overlay {
+	display: none;
+}
+.logo {
+	margin: 0 0 10%;
+}
+#counter {
+	margin: 4% 0 6%;
+}
+.nav-main {
+	bottom: 15px !important;
+}
+.bt-menu ul li.navi-bottom {
+	display: none;
+}
+}
+@media only screen and (max-width: 420px) {
+.home form input {
+	width: 53%;
+}
+.about-icon {
+	width: 100%;
+	margin-bottom: 15px;
+	display: none;
+}
+.about-text {
+	width: 100%;
+}
+}
+@media only screen and (max-width: 360px) {
+.home form input {
+	width: 57%;
+	padding-left: 0;
+	font-size: 14px;
+}
+.home button {
+	padding: 4px 8px;
+	width: auto;
+}
+.social ul li {
+	margin: 0 12px;
+}
+section h1 {
+	font-size: 22px;
+}
+}
+ @media screen and (max-height: 31.125em) {
+.bt-menu ul li a:before {
+	font-size: 32px;
+}
+}
+@media all and (-webkit-min-device-pixel-ratio:1.5) {
+.logo img {
+	display: none !important;
+}
+.logo {
+	background: url(../images/logo%402x.png) left top no-repeat;
+	background-size: 201px 59px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 201px;
+	height: 59px;
+}
+.bt-menu ul li img {
+	display: none
+}
+.bt-menu ul li.navi-bottom {
+	background: url(../images/navigation%402x.png) left top no-repeat;
+	background-size: 122px 66px;
+	width: 122px;
+	margin-left: 15px;
+	height: 66px;
+	float: left;
+	position: absolute;
+	bottom: 100px;
+}
+}
