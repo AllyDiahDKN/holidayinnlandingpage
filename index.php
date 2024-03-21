@@ -18,6 +18,7 @@ session_start();
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+<link rel="icon" type="image/png" href="images/favicon2.png">
 </head>
 <body>
 
