@@ -1139,6 +1139,12 @@ section h1 {
 @media only screen and (max-width: 360px) and (max-height: 640px) {
     /* Add specific adjustments for Samsung S7 here */
 }
+@media only screen and (max-width: 280px) {
+    h4 {
+        font-size: 70%;
+    }
+}
+
 /* Adjustments for responsiveness */
 @media only screen and (max-width: 600px) {
     span {
