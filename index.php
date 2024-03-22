@@ -27,17 +27,22 @@ session_start();
           <div class="home">
             <h1 class="align-center">Website is under Maintainance. </h1>
             <h4 ><strong> We'll be here soon with our new awesome site, For more information, kindly contact us directly.</strong> <h4><br><br>
-            <div> 
-                <h2>For Reservations :</h2>           
-                <ul style="list-style-type: none;"> 
-                  <li>                 
-                <span><strong>Phone.&nbsp;</strong>+255 783 121 201</span><br>
-                <span><strong>Email.&nbsp;</strong>reservations@holidayinn.co.tz </span><br><br>
-                  Azikiwe Street TZ, <br>
-                Upanga Rd, Dar Es Salaam 11105.
-                </li>
-              </ul>           
-            </div>
+            <div class="reservation-container">
+    <h2 class="reservation-heading">For Reservations</h2>
+    <ul style="list-style-type: none;" class="reservation-list">
+        <li>
+            <span class="reservation-label">Phone:<br></span>
+            <span>+255 783 121 201</span><br>
+            <span class="reservation-label">Email:</span>
+            <p>reservations@holidayinn.co.tz</p>
+            <p class="reservation-address">
+                Azikiwe Street TZ, Upanga Rd,<br>
+                Dar Es Salaam 11105.
+            </p>
+        </li>
+    </ul>
+</div>
+
         </div>
       </div>
     </div>
